@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giày Việt</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body{font-family:Arial;margin:0}
+
+.topbar {
+  background: #e53935;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+}
+
+/* Dòng 1: chia 3 côt  */
+.left, .center, .right {
+  flex: 1;
+}
+
+/* trái : hotline */
+.left {
+  text-align: left;
+}
+
+/* giữa :nhận giảm giá */
+.center {
+  text-align: center;
+}
+
+/* phải :vietnam + icon*/
+.right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+/* + ICON */
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+/* + DROPDOWN lựa chọn */
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+/* + menu lựa chọn */
+.dropdown-menu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  display: none;
+  min-width: 150px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+/* + item */
+.dropdown-menu p {
+  margin: 0;
+  padding: 10px;
+}
+.dropdown-menu p:hover {
+  background: #eee;
+}
+/* + hover xổ */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+/* + icon mũi tên */
+.dropdown i {
+  margin-left: 5px;
+}
+
+/*Tìm kiếm + logo*/
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.logo img {
+  height: 110px; 
+}
+.search input {
+  padding: 8px;
+  width: 250px;
+}
+.social {
+  display: flex;
+  gap: 15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.social i:hover {
+  color: #e53935;
+}
+
+/* Trang chủ .... */
+nav {
+  display: flex;
+  justify-content: center; 
+  gap: 20px;             
+  background: #222;
+  padding: 10px;
+}
+nav a:hover {
+  color: #e53935;
+}
+
+/* Khung giày */
+.banner {
+  position: relative;
+  width: 900px;
+  height: 320px;
+  margin: 30px auto;
+  padding: 30px;
+
+  background: linear-gradient(135deg, #8d6e63, #5d4037);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+/* + layout */
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+/* + ảnh */
+.banner-img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.img-main {
+  height: 200px;
+  transform: rotate(-5deg);
+  filter: drop-shadow(0 20px 20px rgba(0,0,0,0.5));
+  transition: 0.3s;
+}
+/* + hover */
+.img-main:hover {
+  transform: scale(1.1) rotate(0deg);
+}
+/* + text */
+.banner-text {
+  width: 50%;
+}
+.banner-text h2 {
+  font-size: 34px;
+}
+.banner-text p {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+/* + button */
+.btn {
+  margin-top: 15px;
+  background: #ff3d00;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+/* + arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  cursor: pointer;
+  color: #ff3d00;
+}
+.left { left: 10px; }
+.right { right: 10px; }
+/* + dots */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.dots span {
+  width: 10px;
+  height: 10px;
+  background: #ddd;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+.dots .active {
+  background: red;
+}
+
+/* Miễn phí vận chuyển ...*/
+.features {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+  width: 900px;
+}
+/* từng item */
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 22%;
+}
+/* icon tròn */
+.icon {
+  width: 45px;
+  height: 45px;
+  background: #000;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+/* text */
+.feature-item h4 {
+  font-size: 14px;
+  margin: 0;
+}
+.feature-item p {
+  font-size: 12px;
+  margin: 0;
+  color: gray;
+}
+
+/* giày thể thao - dép - giày thời trang*/
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+}
+/* từng item */
+.category-item {
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* hình */
+.category-item img {
+  width: 270px;
+  height: 280px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+/* text */
+.category-item p {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+/* hover */
+.category-item:hover img {
+  transform: scale(1.1);
+}
+.category-item:hover p {
+  color: red;
+  font-weight: bold;
+}
+/* active */
+.category-item.active p {
+  color: red;
+  font-weight: bold;
+}
+
+
+
+.section {
+  width: 1000px;
+  margin: auto;
+}
+
+/* tiêu đề đỏ */
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.title span {
+  background: red;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* grid sản phẩm */
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* card */
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  position: relative;
+  background: #fff;
+}
+
+/* icon tim */
+.heart {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ảnh */
+.product img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* tên */
+.name {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+/* giá */
+.price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.sold {
+  color: red;
+}
+
+/* footer */
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Lựa chọn mới*/
+.section {
+  width: 1000px;
+  margin: auto;
+}
+
+/* tiêu đề đỏ */
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.title span {
+  background: red;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* grid sản phẩm */
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* card */
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  position: relative;
+  background: #fff;
+}
+
+/* icon tim */
+.heart {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ảnh */
+.product img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* tên */
+.name {
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+/* giá */
+.price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.sold {
+  color: red;
+}
+/* footer */
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+
+/* Đề xuất dành cho bạn */
+.suggest {
+  width: 1000px;
+  margin: 40px auto;
+}
+
+.suggest h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* grid 2 hàng */
+.suggest-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* item nhỏ */
+.suggest-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ảnh nhỏ */
+.suggest-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* text */
+.suggest-item p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.suggest-item span {
+  font-size: 13px;
+  color: #555;
+}
+.suggest {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+
+
+/* giới thiệu về wed*/
+/* newsletter */
+.newsletter {
+  background: red;
+  color: white;
+  padding: 15px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.news-left {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.news-right {
+  display: flex;
+  gap: 10px;
+}
+
+.news-right input {
+  padding: 8px;
+  border: none;
+  width: 250px;
+}
+
+.news-right button {
+  background: white;
+  color: red;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background: white !important;
+}
+
+.footer-col {
+  width: 30%;
+}
+
+.footer-col h4 {
+  margin-bottom: 10px;
+  color:black
+}
+
+.footer-col p {
+  margin: 5px 0;
+  font-size: 14px;
+  color:black !important; 
+}
+
+.search{flex:1;margin:0 20px}
+.search input{width:100%;padding:8px;border-radius:20px;border:1px solid #ccc}
+nav a{color:#fff;text-decoration:none}
+
+</style>
+</head>
+<body>
+
+
+<div class="topbar">
+   <div class="left">
+    Hotline 0987658420
+  </div>
+  <div class="center">
+    Nhận giảm 20% cho khách hàng đầu tiên
+  </div>
+  <div class="right">
+    <div class="dropdown">
+      Việt Nam (VND) <i class="fa fa-caret-down"></i>
+      <div class="dropdown-menu">
+        <p>Việt Nam (VND)</p>
+        <p>USA (USD)</p>
+        <p>Japan (JPY)</p>
+      </div>
+    </div>
+    <div class="icons">
+      <i class="fa fa-user"></i>
+      <i class="fa fa-cart-shopping"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="header">
+<div class="logo">
+  <img src="logo.png" alt="Logo">
+</div>
+<div class="search"><input placeholder="Tìm kiếm..."></div>
+ <div class="social">
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-tiktok"></i>
+    <i class="fa-brands fa-instagram"></i>
+  </div>
+</div>
+
+
+<nav>
+<a href="#">Trang chủ</a>
+<a href="#">Cửa hàng</a>
+<a href="#">Thể loại</a>
+<a href="#">Sản phẩm</a>
+<a href="#">Tin tức</a>
+<a href="#">Phụ kiện</a>
+</nav>
+
+
+<div class="banner">
+  <div class="arrow left">&#10094;</div>
+  <div class="banner-content">
+    <div class="banner-img">
+      <img src="giay1.png" class="img-main">
+    </div>
+    <div class="banner-text">
+      <h2>Khuyến Mãi Có Hạn</h2>
+      <p>Lên đến 50%</p>
+      <span>Đi cùng hành trình của bạn trên từng bước đi !!!</span>
+      <br>
+      <button class="btn">MUA NGAY</button>
+    </div>
+  </div>
+  <div class="arrow right">&#10095;</div>
+  <div class="dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+
+<div class="features">
+
+  <div class="feature-item">
+    <div class="icon">🚚</div>
+    <div>
+      <h4>Miễn phí vận chuyển</h4>
+      <p>Đối với đơn hàng trên 500k</p>
+    </div>
+  </div>
+
+  <div class="feature-item">
+    <div class="icon">💰</div>
+    <div>
+      <h4>Hoàn tiền</h4>
+      <p>Hoàn tiền trong 15 ngày</p>
+    </div>
+  </div>
+
+  <div class="feature-item">
+    <div class="icon">🔒</div>
+    <div>
+      <h4>Thanh toán an toàn</h4>
+      <p>Thanh toán an toàn 100%</p>
+    </div>
+  </div>
+
+  <div class="feature-item">
+    <div class="icon">🎧</div>
+    <div>
+      <h4>Hỗ trợ trực tuyến</h4>
+      <p>Đảm bảo chất lượng sản phẩm</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="categories">
+
+  <div class="category-item">
+    <img src="giay3.jpg">
+    <p>Giày thể thao (6 sản phẩm) </p>
+  </div>
+
+  <div class="category-item">
+    <img src="dep.png">
+    <p>Dép (5 sản phẩm)</p>
+  </div>
+
+  <div class="category-item">
+    <img src="giay4.png">
+    <p>Giày thời trang(5 sản phẩm)</p>
+  </div>
+
+</div>
+
+
+
+<div class="section">
+  <!-- tiêu đề -->
+  <div class="title">
+    <span>Mới</span>
+  </div>
+  <!-- danh sách sản phẩm -->
+  <div class="products">
+
+    <div class="product">
+      <span class="heart">♡</span>
+      <img src="giay1a.png">
+      <p class="name">Giày Thể Thao Evo Màu Kem HSW015500KEM</p>
+      <div class="price">
+        <span>755.000đ</span>
+        <span class="sold">Đã bán: 63</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="heart">♡</span>
+      <img src="giay1b.png">
+      <p class="name">Giày Thể Thao Core Flash Nam</p>
+      <div class="price">
+        <span>875.000đ</span>
+        <span class="sold">Đã bán: 373</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="heart">♡</span>
+      <img src="giay1c.png">
+      <p class="name">Nike Air Force 1 '07</p>
+      <div class="price">
+        <span>2.922.000đ</span>
+        <span class="sold">Đã bán: 3</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="heart">♡</span>
+      <img src="giay1d.png">
+      <p class="name">Giày Thể Thao Street 2.0</p>
+      <div class="price">
+        <span>715.000đ</span>
+        <span class="sold">Đã bán: 422</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="heart">♡</span>
+      <img src="giay1e.png">
+      <p class="name">Sandal Biti's SUPERSTAR</p>
+      <div class="price">
+        <span>324.000đ</span>
+        <span class="sold">Đã bán: 22</span>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="heart">♡</span>
+      <img src="giay1f.png">
+      <p class="name">Sandals Biti's</p>
+      <div class="price">
+        <span>309.000đ</span>
+        <span class="sold">Đã bán: 12</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="suggest">
+
+  <h3>ĐỀ XUẤT DÀNH CHO BẠN</h3>
+
+  <div class="suggest-list">
+
+    <div class="suggest-item">
+      <img src="giày 5.png">
+      <div>
+        <p>Giày samba OG</p>
+        <span>2.700.000đ</span>
+      </div>
+    </div>
+
+    <div class="suggest-item">
+      <img src="giày 6.png">
+      <div>
+        <p>Giày adidas</p>
+        <span>568.000đ</span>
+      </div>
+    </div>
+
+    <div class="suggest-item">
+      <img src="dep2.png">
+      <div>
+        <p>Dép locohost</p>
+        <span>230.000đ</span>
+      </div>
+    </div>
+
+    <div class="suggest-item">
+      <img src="dep3.png">
+      <div>
+        <p>Dép memorie</p>
+        <span>278.000đ</span>
+      </div>
+    </div>
+
+    <div class="suggest-item">
+      <img src="dep4.png">
+      <div>
+        <p>Dép adidas</p>
+        <span>378.000đ</span>
+      </div>
+    </div>
+
+    <div class="suggest-item">
+      <img src="dep5.png">
+      <div>
+        <p>Dép sandal</p>
+        <span>200.000đ</span>
+      </div>
+    </div>
+
+    <div class="suggest-item">
+      <img src="dep6.png">
+      <div>
+        <p>Giày sandal spiderman</p>
+        <span>230.000đ</span>
+      </div>
+    </div>
+
+    <div class="suggest-item">
+      <img src="dep7.png">
+      <div>
+        <p>Dép bitis</p>
+        <span>2.750.000đ</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Đăng ký -->
+<div class="newsletter">
+  <div class="news-left">
+    <b>ĐĂNG KÍ NHẬN BẢN TIN</b>
+    <span>Để nhận bản tin từ GiàyViệt và các chương trình khuyến mãi hấp dẫn</span>
+  </div>
+
+  <div class="news-right">
+    <input type="text" placeholder="vui lòng nhập email và bấm đăng kí">
+    <button>ĐĂNG KÍ</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+
+  <div class="footer-col">
+    <h4>THÔNG TIN</h4>
+    <p>Trạng thái đơn hàng</p>
+    <p>Hình thức giao hàng</p>
+    <p>Hình thức thanh toán</p>
+    <p>Hướng dẫn cách chọn Size</p>
+    <p>Chính sách đổi Size</p>
+    <p>Chính sách đổi trả</p>
+    <p>Chính sách bảo hành</p>
+    <p>Chính sách khách hàng thân thiết</p>
+    <p>Chính sách bảo vệ thông tin khách hàng</p>
+  </div>
+
+  <div class="footer-col">
+    <h4>TRỢ GIÚP</h4>
+    <p>Tuyển Dụng</p>
+    <p>Hệ thống cửa hàng</p>
+    <p>Liên hệ hợp tác</p>
+    <p>Q&A</p>
+  </div>
+
+  <div class="footer-col">
+    <h4>GIÀY VIỆT</h4>
+    <p>CÔNG TY TNHH SẢN XUẤT HÀNG TIÊU DÙNG BÌNH TIÊN</p>
+    <p>Địa chỉ: 22 Lý Chiêu Hoàng, Phường 10, Quận 6, TP. Hồ Chí Minh</p>
+    <p>Điện thoại: (028) 38 753 443</p>
+    <p>Email: chamsochkhachhang@giayviet.com.vn</p>
+    <p>Hotline: 0966158666</p>
+    <p>Thời gian tư vấn: 8h - 21h30 các ngày trong tuần</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>© 2026 Giày Việt</p>
+</div>
+
+</body>
+</html>
